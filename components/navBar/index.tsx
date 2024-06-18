@@ -4,11 +4,11 @@ import styles from "./navBar.module.css";
 
 export const NavBar: React.FC = () => {
   const links = [
-    { href: "ubicacion", label: "Ubicación" },
-    { href: "programa", label: "Programa" },
-    { href: "dresscode", label: "Dress code" },
-    { href: "hospedaje", label: "Hospedaje" },
-    { href: "obsequios", label: "Obsequios" },
+    { href: "#ubicacion", label: "Ubicación" },
+    { href: "#programa", label: "Programa" },
+    { href: "#dresscode", label: "Dress code" },
+    { href: "#hospedaje", label: "Hospedaje" },
+    { href: "#obsequios", label: "Obsequios" },
   ];
 
   return (
@@ -23,7 +23,7 @@ export const NavBar: React.FC = () => {
         />
       </Link>
 
-      <ul className="text-2xl gap-x-8 xl:gap-x-12 hidden lg:flex">
+      <ul className="text-2xl gap-x-7 xl:gap-x-12 hidden lg:flex">
         {links.map(({ href, label }) => (
           <li key={href}>
             <Link href={href}>{label}</Link>
