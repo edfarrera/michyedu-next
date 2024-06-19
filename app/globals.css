@@ -43,6 +43,10 @@ h3 {
   margin-bottom: -1.25rem;
 }
 
+h4 {
+  font-family: var(--font-cinzel);
+}
+
 section {
   scroll-margin-top: 98px;
 }

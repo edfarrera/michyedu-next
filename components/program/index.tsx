@@ -1,7 +1,7 @@
 import { ScheduleTable } from "../scheduleTable";
 
 const saturdaySchedule = [
-  { time: "03:30 PM", activity: "RECEPCIÓN" },
+  { time: "03:40 PM", activity: "RECEPCIÓN" },
   { time: "04:00 PM", activity: "CEREMONIA SIMBÓLICA" },
   { time: "05:00 PM", activity: "COCTEL DE BIENVENIDA" },
   { time: "06:30 PM", activity: "BANQUETE" },
@@ -9,7 +9,7 @@ const saturdaySchedule = [
 ];
 const sundaySchedule = [
   { time: "05:30 PM", activity: "RECEPCIÓN" },
-  { time: "06:00 PM", activity: "TAQUIZA" },
+  { time: "06:30 PM", activity: "TAQUIZA" },
   { time: "07:00 PM", activity: "MARIACHI" },
   { time: "08:00 PM", activity: "KARAOKE" },
 ];
