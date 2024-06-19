@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { cinzel, poppins } from "@/app/ui/fonts";
 import { NavBar } from "@/components/navBar";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Michelle & Eduardo",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className={`${poppins.className} ${cinzel.variable} antialiased`}>
         <NavBar />
         {children}
+        <Footer />
       </body>
     </html>
   );
