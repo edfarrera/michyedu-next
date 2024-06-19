@@ -2,7 +2,7 @@ import { rivage } from "@/app/ui/fonts";
 import { SlideShow } from "../slideShow";
 import styles from "./introduction.module.css";
 
-export const Introduction: React.FC = () => {
+export const Introduction = () => {
   return (
     <section>
       <SlideShow />

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { poppins } from "@/app/ui/fonts";
+import { cinzel, poppins } from "@/app/ui/fonts";
 import { NavBar } from "@/components/navBar";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} ${cinzel.variable} antialiased`}>
         <NavBar />
         {children}
       </body>

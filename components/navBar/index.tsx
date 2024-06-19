@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./navBar.module.css";
+import { MobileNavBar } from "./mobileNavBar";
 
-export const NavBar: React.FC = () => {
-  const links = [
+export type LinkRoutes = { href: string; label: string };
+
+export const NavBar = () => {
+  const links: LinkRoutes[] = [
     { href: "#ubicacion", label: "Ubicación" },
     { href: "#programa", label: "Programa" },
     { href: "#dresscode", label: "Dress code" },
@@ -35,14 +38,7 @@ export const NavBar: React.FC = () => {
         Confirma tu asistencia
       </Link>
 
-      <button className="block lg:hidden">
-        <Image
-          src="/icons/hamburger.svg"
-          alt="Abrir menu de navegación"
-          width={24}
-          height={24}
-        />
-      </button>
+      <MobileNavBar links={links} />
     </nav>
   );
 };
