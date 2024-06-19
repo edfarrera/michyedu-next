@@ -1,0 +1,8 @@
+.container {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  margin-top: 1rem;
+  column-gap: 16px;
+  row-gap: 30px;
+  color: var(--light-text);
+}
