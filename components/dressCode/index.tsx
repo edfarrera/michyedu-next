@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import styles from "./dressCode.module.css";
+import { IconHeader } from "../iconHeader";
 
 export const DressCode = () => {
   return (
@@ -30,14 +31,7 @@ export const DressCode = () => {
         />
 
         <ul className={`col-start-1 row-start-2 lg:row-start-1 ${styles.list}`}>
-          <Image
-            src="/icons/leaf1.svg"
-            width={40}
-            height={40}
-            alt=""
-            className="inline"
-          />
-          <h4>MUJERES</h4>
+          <IconHeader icon="/icons/leaf1.svg" title="MUJERES" />
           <li>Vestido largo</li>
           <li>NO colores claros que se puedan confundir con blanco/beige</li>
           <li>
@@ -47,14 +41,7 @@ export const DressCode = () => {
         </ul>
 
         <ul className={styles.list}>
-          <Image
-            src="/icons/leaf1.svg"
-            width={40}
-            height={40}
-            alt=""
-            className="inline"
-          />
-          <h4>HOMBRES</h4>
+          <IconHeader icon="/icons/leaf1.svg" title="HOMBRES" />
           <li>Traje o esmoquin</li>
         </ul>
       </div>

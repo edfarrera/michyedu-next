@@ -15,31 +15,29 @@
 }
 
 .header {
-  display: inline-block;
   font-size: 1.7rem;
-  font-weight: bold;
+  column-gap: 0.7rem;
 }
 
 .header b {
   color: var(--secondary);
 }
 
-.icon {
-  display: inline-block;
-  object-fit: contain;
+.header > img {
   width: 55px;
   height: 55px;
-  margin-right: 0.7rem;
+  object-fit: contain;
 }
 
 @media (max-width: 1200px) {
   .header {
     font-size: 1.5rem;
+    column-gap: 0.5rem;
   }
-  .icon {
+
+  .header > img {
     width: 40px;
     height: 40px;
-    margin-right: 0.5rem;
   }
 }
 
@@ -48,10 +46,9 @@
     font-size: 1.2rem;
   }
 
-  .icon {
+  .header > img {
     width: 33px;
     height: 33px;
-    margin-right: 0.5rem;
   }
 
   .table {

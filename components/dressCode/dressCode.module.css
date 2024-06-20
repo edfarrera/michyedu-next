@@ -39,15 +39,6 @@
   margin: auto;
 }
 
-.list > h4 {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 5px;
-  font-weight: bold;
-  color: var(--light-text);
-  font-size: 1.5rem;
-}
-
 .list > li {
   margin-top: 5px;
   margin-inline-start: 20px;

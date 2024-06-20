@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
-import Image from "next/image";
 
 import styles from "./scheduleTable.module.css";
+import { IconHeader } from "../iconHeader";
 
 interface ScheduleTableProps {
-  header: string | ReactNode;
+  header: ReactNode;
   schedule: { time: string; activity: string }[];
   iconSource: string;
 }
@@ -16,14 +16,7 @@ export const ScheduleTable: React.FC<ScheduleTableProps> = ({
 }) => {
   return (
     <div className={styles.container}>
-      <Image
-        src={iconSource}
-        width={55}
-        height={55}
-        className={styles.icon}
-        alt=""
-      />
-      <h4 className={styles.header}>{header}</h4>
+      <IconHeader title={header} icon={iconSource} className={styles.header} />
       <table className={styles.table}>
         <tbody className="grid gap-3">
           {schedule.map(({ time, activity }) => (
