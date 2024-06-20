@@ -22,16 +22,29 @@ export const SlideShow: React.FC = () => {
       className={styles.container}
     >
       <SwiperSlide className={styles.slide}>
-        <Image src="/images/slide1.webp" alt="" fill priority />
+        <Image src="/images/slide1.jpeg" alt="" fill priority quality={100} />
       </SwiperSlide>
       <SwiperSlide className={styles.slide}>
-        <Image src="/images/slide2.jpg" alt="" fill />
+        <Image src="/images/slide2.jpeg" alt="" fill quality={100} />
       </SwiperSlide>
       <SwiperSlide className={styles.slide}>
-        <Image src="/images/slide3.jpg" alt="" fill />
+        <Image src="/images/slide3.jpeg" alt="" fill quality={100} />
       </SwiperSlide>
       <SwiperSlide className={styles.slide}>
-        <Image src="/images/slide4.jpg" alt="" fill />
+        <Image
+          src="/images/slide4-mobile.jpeg"
+          alt=""
+          fill
+          quality={100}
+          className="block lg:hidden"
+        />
+        <Image
+          src="/images/slide4.jpeg"
+          alt=""
+          fill
+          quality={100}
+          className="hidden md:block"
+        />
       </SwiperSlide>
 
       <div className={styles.subContainer}>
