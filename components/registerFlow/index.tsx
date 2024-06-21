@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
-import { PhoneVerification } from "./PhoneVerification";
+import { PhoneVerification } from "./states/PhoneVerification";
 
 import styles from "./registerFlow.module.css";
-import { GuestConfirmation } from "./GuestConfirmation";
+import { GuestConfirmation } from "./states/GuestConfirmation";
 
 export type GuestObject = { guest: string; confirmation: boolean };
 
 export const RegisterFlow = () => {
+  const [phone, setPhone] = useState<string>("");
   const [guests, setGuests] = useState<GuestObject[]>([]);
 
   return (
@@ -25,9 +26,9 @@ export const RegisterFlow = () => {
       </ul>
 
       {guests.length > 0 ? (
-        <GuestConfirmation guests={guests} />
+        <GuestConfirmation phone={phone} guests={guests} />
       ) : (
-        <PhoneVerification setGuests={setGuests} />
+        <PhoneVerification setGuests={setGuests} setPhone={setPhone} />
       )}
     </section>
   );

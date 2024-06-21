@@ -23,7 +23,7 @@ export const MobileNavBar = ({ links }: { links: LinkRoutes[] }) => {
       </button>
 
       <div
-        className={`fixed right-0 top-[67px] overflow-hidden flex flex-col items-end bg-white 
+        className={`fixed right-0 top-[67px] overflow-hidden flex flex-col items-end bg-white rounded-bl-lg
           ${styles.shadow} ${styles.transition} ${isOpen && styles.show}`}
       >
         <ul className="text-2xl flex flex-col text-right gap-7 mb-7 w-full px-[38px] pt-[20px]">

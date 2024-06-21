@@ -1,35 +1,44 @@
-import { useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { PhoneInput } from "react-international-phone";
 
-import styles from "./registerFlow.module.css";
-import "react-international-phone/style.css";
 import { searchGuest } from "@/actions/searchGuests";
-import { GuestObject } from ".";
+import { GuestObject } from "@/components/registerFlow";
+
+import styles from "../registerFlow.module.css";
+import "react-international-phone/style.css";
 
 interface PhoneVerificationProps {
   setGuests: (guests: GuestObject[]) => void;
+  setPhone: (phone: string) => void;
 }
 
 export const PhoneVerification: React.FC<PhoneVerificationProps> = ({
   setGuests,
+  setPhone,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [error, setError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const submitNumber = async () => {
+  const submitNumber = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     setError(false);
     let phone = inputRef.current?.value.replace("+52", "").replaceAll(" ", "");
     if (!phone) return;
 
+    setIsSubmitting(true);
     const guests = await searchGuest(phone);
 
     if (!guests) return setError(true);
 
     setGuests(guests);
+    setPhone(phone);
+    setIsSubmitting(false);
   };
 
   return (
-    <div className={styles.inputContainer}>
+    <form className={styles.inputContainer} onSubmit={submitNumber}>
       <p className="font-semibold">
         Ingresa tu teléfono celular y da click en buscar
       </p>
@@ -50,10 +59,14 @@ export const PhoneVerification: React.FC<PhoneVerificationProps> = ({
           inputRef={inputRef}
           className={`${styles.phoneInput} ${error && styles.phoneError}`}
         />
-        <button className={`button ${styles.button}`} onClick={submitNumber}>
-          Buscar
+        <button
+          type="submit"
+          className={`button ${styles.button}`}
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "...Buscando" : "Buscar"}
         </button>
       </div>
-    </div>
+    </form>
   );
 };

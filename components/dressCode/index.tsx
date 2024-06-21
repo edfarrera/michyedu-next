@@ -37,9 +37,7 @@ export const DressCode = () => {
           <li>
             Te sugerimos traer tacones cómodos para caminar en pasto/piedras
           </li>
-          <li>
-            <b>Trae tus tenis para bailar</b>
-          </li>
+          <li className="font-semibold">Trae tus tenis para bailar</li>
         </ul>
 
         <ul className={styles.list}>

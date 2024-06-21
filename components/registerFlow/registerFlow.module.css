@@ -4,7 +4,6 @@
   background-position: center;
   background-size: cover;
   color: white;
-  min-height: 700px;
   align-content: flex-start;
 }
 
@@ -57,6 +56,10 @@
 
 .button {
   flex: 1;
+}
+
+.button:disabled {
+  background-color: var(--light-text);
 }
 
 @media (max-width: 1023px) {
