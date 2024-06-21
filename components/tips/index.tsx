@@ -8,12 +8,12 @@ const tips = [
     text: "Si nos acompañas en la ceremonia simbólica, por favor llega 10 min antes de las 4:00 pm para escuchar las indicaciones de los rituales.",
   },
   {
-    image: "/images/flor-2.png",
-    text: "Considera algo para abrigarte ya que en la noche puede hacer frío o haber mucho viento.",
-  },
-  {
     image: "/images/flor-3.png",
     text: "La hacienda cuenta con Valet parking, pero te recomendamos llegar en Uber, especialmente si vas a tomar.",
+  },
+  {
+    image: "/images/flor-2.png",
+    text: "Considera algo para abrigarte ya que en la noche puede hacer frío o haber mucho viento.",
   },
 ];
 
