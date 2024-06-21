@@ -26,6 +26,9 @@ export const Accordion = ({ title, iconSource, children }: AccordionProps) => {
         />
         <Image
           src="/icons/chevronDown.svg"
+          className={`${
+            isOpen && "-rotate-180"
+          } transition-transform duration-500`}
           alt="Expand"
           width={21}
           height={21}

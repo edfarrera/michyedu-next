@@ -21,20 +21,23 @@ export const MobileNavBar = ({ links }: { links: LinkRoutes[] }) => {
           height={24}
         />
       </button>
-      {isOpen && (
-        <div className="absolute right-0 top-[69px] px-[38px] bg-white py-[20px] w-full shadow-md flex flex-col items-end overflow-hidden">
-          <ul className="text-2xl flex flex-col text-right gap-7 mb-7 w-full">
-            {links.map(({ href, label }) => (
-              <li key={href} className="border-b-2 w-full">
-                <Link href={href}>{label}</Link>
-              </li>
-            ))}
-          </ul>
-          <Link className="button" href="#asistencia">
-            Confirma tu asistencia
-          </Link>
-        </div>
-      )}
+
+      <div
+        className={`fixed right-0 top-[67px] overflow-hidden flex flex-col items-end bg-white 
+          ${styles.shadow} ${styles.transition} ${isOpen && styles.show}`}
+      >
+        <ul className="text-2xl flex flex-col text-right gap-7 mb-7 w-full px-[38px] pt-[20px]">
+          {links.map(({ href, label, icon }) => (
+            <li key={href} className="w-full flex justify-end gap-2">
+              <Link href={href}>{label}</Link>
+              <Image src={icon} alt="" width={25} height={25} />
+            </li>
+          ))}
+        </ul>
+        <Link className={`button ${styles.button}`} href="#asistencia">
+          Confirma tu asistencia
+        </Link>
+      </div>
     </div>
   );
 };

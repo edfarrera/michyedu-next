@@ -1,0 +1,68 @@
+.container {
+  background: url(/images/ring_maya.JPG), #00000033;
+  background-blend-mode: saturation;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  min-height: 700px;
+  align-content: flex-start;
+}
+
+.list {
+  list-style: disc;
+  padding-inline-start: 2rem;
+  font-size: 1.75rem;
+  display: grid;
+  row-gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.inputContainer {
+  display: grid;
+  justify-content: center;
+  row-gap: 0.75rem;
+  font-size: 1.25rem;
+  color: black;
+  background-color: #ffffffb2;
+  border-radius: 8px;
+  padding: 24px 18px;
+}
+
+.phoneInput {
+  --react-international-phone-height: 41px;
+  --react-international-phone-border-radius: 8px;
+  --react-international-phone-font-size: 1rem;
+  --react-international-phone-border-color: #586065;
+  --react-international-phone-country-selector-arrow-size: 0;
+  flex: 2;
+  min-width: fit-content;
+  height: max-content;
+}
+
+.phoneInput > input {
+  flex-grow: 1;
+}
+
+.phoneInput button {
+  width: 41px;
+}
+
+.phoneInput img {
+  margin-left: 8px;
+}
+
+.phoneError {
+  --react-international-phone-border-color: rgb(220 38 38);
+}
+
+.button {
+  flex: 1;
+}
+
+@media (max-width: 1023px) {
+  .list {
+    list-style: disc;
+    padding-inline-start: 1.75rem;
+    font-size: 1.5rem;
+  }
+}

@@ -23,9 +23,8 @@ export const Program = () => {
       <h3 className="text-[color:#af440e] ">Programa</h3>
       <h2>Eventos</h2>
       <p>
-        Queremos compartir con ustedes lo más que podamos. Es por eso que los
-        invitamos a la ceremonia y fiesta el sábado y torna boda al día
-        siguiente para dar el grito juntos!
+        ¡Aprovechemos que estamos juntos! Nos vemos en la boda y torna-boda al
+        día siguiente para dar el grito juntos.
       </p>
 
       <div className="flex flex-col lg:flex-row gap-7 mt-7">

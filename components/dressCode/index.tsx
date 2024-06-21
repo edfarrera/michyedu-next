@@ -27,17 +27,19 @@ export const DressCode = () => {
           height={377}
           src="/images/vestimenta.png"
           alt=""
-          className="m-auto"
+          className={`m-auto ${styles.imageShadow}`}
         />
 
         <ul className={`col-start-1 row-start-2 lg:row-start-1 ${styles.list}`}>
           <IconHeader icon="/icons/leaf1.svg" title="MUJERES" />
           <li>Vestido largo</li>
-          <li>NO colores claros que se puedan confundir con blanco/beige</li>
+          <li>NO colores claros que se puedan confundir con blanco</li>
           <li>
             Te sugerimos traer tacones cómodos para caminar en pasto/piedras
           </li>
-          <li>Trae tus tenis para bailar</li>
+          <li>
+            <b>Trae tus tenis para bailar</b>
+          </li>
         </ul>
 
         <ul className={styles.list}>

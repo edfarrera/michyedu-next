@@ -3,15 +3,15 @@ import Image from "next/image";
 import styles from "./navBar.module.css";
 import { MobileNavBar } from "./mobileNavBar";
 
-export type LinkRoutes = { href: string; label: string };
+export type LinkRoutes = { href: string; label: string; icon: string };
 
 export const NavBar = () => {
   const links: LinkRoutes[] = [
-    { href: "#ubicacion", label: "Ubicación" },
-    { href: "#programa", label: "Programa" },
-    { href: "#dresscode", label: "Dress code" },
-    { href: "#hospedaje", label: "Hospedaje" },
-    { href: "#obsequios", label: "Obsequios" },
+    { href: "#ubicacion", label: "Ubicación", icon: "/icons/location.svg" },
+    { href: "#programa", label: "Programa", icon: "/icons/calendar.svg" },
+    { href: "#dresscode", label: "Dress code", icon: "/icons/dressCode.svg" },
+    { href: "#hospedaje", label: "Hospedaje", icon: "/icons/bed.svg" },
+    { href: "#obsequios", label: "Obsequios", icon: "/icons/present.svg" },
   ];
 
   return (

@@ -7,7 +7,7 @@
 
 .image {
   margin-top: max(-10vw, -9rem);
-  filter: brightness(1.1);
+  filter: brightness(1.1) drop-shadow(0px 6px 7px rgba(15, 8, 59, 0.4));
 }
 
 .accordionContainer {

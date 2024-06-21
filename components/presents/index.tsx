@@ -24,10 +24,9 @@ export const Presents = () => {
         <div className={styles.textContainer}>
           <p className="mb-7">
             Gracias por ser parte de nuestra boda y llenarla de recuerdos
-            hermosos. Valoramos mucho su presencia, sonrisas y amor. Si desean
-            hacer un regalo, les sugerimos una transferencia con detalles
-            específicos como un aporte para nuestro viaje de luna de miel o
-            nuestra casa.
+            hermosos, sonrisas y amor. Si desean hacer un regalo, les sugerimos
+            una transferencia con detalles específicos como un aporte para
+            nuestro viaje de luna de miel o nuestra casa.
           </p>
           <p>
             ¡Compartir nuestra felicidad con ustedes es el mejor regalo que

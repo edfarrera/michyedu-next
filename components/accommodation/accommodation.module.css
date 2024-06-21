@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  overflow: scroll;
+  column-gap: 20px;
+  padding-inline: 20px;
+  grid-column: full-width;
+  padding-block: 50px;
+  margin-block: -30px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-column: content;
+    flex-direction: column;
+    row-gap: 2rem;
+    padding-inline: 0;
+    overflow: visible;
+  }
+}
