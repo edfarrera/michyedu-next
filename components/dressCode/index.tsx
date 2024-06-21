@@ -46,7 +46,7 @@ export const DressCode = () => {
         </ul>
       </div>
 
-      <div className="relative">
+      <div className="relative mt-4">
         <h4 className={styles.header}>
           Domingo 15 de Septiembre: <b>Vestimenta casual</b>
         </h4>
