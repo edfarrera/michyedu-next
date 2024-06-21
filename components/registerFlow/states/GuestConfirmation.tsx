@@ -1,19 +1,32 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { GuestObject } from "@/components/registerFlow";
 
 import styles from "@/components/registerFlow/registerFlow.module.css";
 
 interface GuestConfirmationProps {
-  guests: GuestObject[];
   phone: string;
+  guests: GuestObject[];
+  setConfirmation: (confirmation: "attending" | "absent") => void;
 }
 
 export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
   phone,
   guests,
+  setConfirmation,
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [confirmations, setConfirmations] = useState<boolean[]>([]);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    setIsSubmitting(true);
+
+    const confirmation = confirmations.includes(true);
+    setConfirmation(confirmation ? "attending" : "absent");
+
+    setIsSubmitting(false);
+  };
 
   const changeConfirmation = (index: number, checked: boolean) => {
     setConfirmations((prev) => {
@@ -26,10 +39,7 @@ export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
   return (
     <form
       className={`${styles.inputContainer} justify-items-center`}
-      onSubmit={(e) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-      }}
+      onSubmit={handleSubmit}
     >
       <p className="font-semibold mb-4">
         ¡Hola!, por favor confirma quiénes asistirán a la boda.

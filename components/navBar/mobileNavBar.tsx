@@ -26,7 +26,7 @@ export const MobileNavBar = ({ links }: { links: LinkRoutes[] }) => {
         className={`fixed right-0 top-[67px] overflow-hidden flex flex-col items-end bg-white rounded-bl-lg
           ${styles.shadow} ${styles.transition} ${isOpen && styles.show}`}
       >
-        <ul className="text-2xl flex flex-col text-right gap-7 mb-7 w-full px-[38px] pt-[20px]">
+        <ul className="text-2xl flex flex-col text-right gap-9 w-full px-[38px] pt-4 pb-9">
           {links.map(({ href, label, icon }) => (
             <li key={href} className="w-full flex justify-end gap-2">
               <Link href={href}>{label}</Link>

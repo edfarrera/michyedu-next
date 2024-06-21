@@ -5,7 +5,12 @@ export const poppins = Poppins({
   subsets: ["latin"],
 });
 
-export const rivage = Beau_Rivage({ weight: ["400"], subsets: ["latin"] });
+export const beau = Beau_Rivage({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-beau",
+});
+
 export const cinzel = Cinzel({
   weight: ["400", "700"],
   subsets: ["latin"],

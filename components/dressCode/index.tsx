@@ -25,7 +25,7 @@ export const DressCode = () => {
         <Image
           width={168}
           height={377}
-          src="/images/vestimenta.png"
+          src="/images/dresscode.png"
           alt=""
           className={`m-auto ${styles.imageShadow}`}
         />

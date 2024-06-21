@@ -24,17 +24,23 @@ export const PhoneVerification: React.FC<PhoneVerificationProps> = ({
     event.preventDefault();
 
     setError(false);
-    let phone = inputRef.current?.value.replace("+52", "").replaceAll(" ", "");
-    if (!phone) return;
+    try {
+      let phone = inputRef.current?.value
+        .replace("+52", "")
+        .replaceAll(" ", "");
+      if (!phone) return;
 
-    setIsSubmitting(true);
-    const guests = await searchGuest(phone);
+      setIsSubmitting(true);
+      const guests = await searchGuest(phone);
 
-    if (!guests) return setError(true);
+      if (!guests) return setError(true);
 
-    setGuests(guests);
-    setPhone(phone);
-    setIsSubmitting(false);
+      setGuests(guests);
+      setPhone(phone);
+    } catch {
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
