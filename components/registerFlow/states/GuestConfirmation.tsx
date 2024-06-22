@@ -64,13 +64,13 @@ export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
       className={`${styles.inputContainer} justify-items-center`}
       onSubmit={handleSubmit}
     >
-      <p className="font-semibold mb-4">
+      <p className="font-semibold mb-3">
         ¡Hola!, por favor selecciona quiénes asistirán a la boda.
       </p>
       {guests.map(
         (guest, index) =>
           guest && (
-            <div key={guest} className="flex gap-3 w-full">
+            <div key={guest} className="flex gap-3 w-full mb-3 ">
               <input
                 id={`checkbox-${index}`}
                 type="checkbox"
@@ -89,7 +89,7 @@ export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
 
       <textarea
         ref={messageRef}
-        className="w-full text-lg p-2 rounded-xl  outline-blue-500 mt-8"
+        className="w-full text-lg p-2 rounded-xl  outline-blue-500"
         placeholder="Déjanos un mensaje, o haznos saber si tienes alguna restricción alimenticia."
         rows={4}
         maxLength={300}
