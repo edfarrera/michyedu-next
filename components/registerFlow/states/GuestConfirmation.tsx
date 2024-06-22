@@ -65,7 +65,7 @@ export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
       onSubmit={handleSubmit}
     >
       <p className="font-semibold mb-4">
-        ¡Hola!, por favor confirma quiénes asistirán a la boda.
+        ¡Hola!, por favor selecciona quiénes asistirán a la boda.
       </p>
       {guests.map(
         (guest, index) =>
