@@ -6,12 +6,16 @@ import styles from "./registerFlow.module.css";
 import { GuestConfirmation } from "./states/GuestConfirmation";
 import { Farewell } from "./states/Farewell";
 
-export type GuestObject = { guest: string; confirmation: boolean };
+export const missingError =
+  "Parece que no encontramos este número, por favor intenta con uno diferente o ponte en contacto con nosotros.";
+export const somethingWentWrongError =
+  "Oops!... parece que algo salio mal, por favor vuelve a intentarlo más tarde o ponte en contacto con nosotros.";
 
 export const RegisterFlow = () => {
   const [phone, setPhone] = useState<string>("");
-  const [guests, setGuests] = useState<GuestObject[]>([]);
-  const [confirmation, setConfirmation] = useState<"attending" | "absent">();
+  const [guests, setGuests] = useState<string[]>([]);
+  const [confirmations, setConfirmations] = useState<boolean[]>([]);
+  const [assistance, setAssistance] = useState<"attending" | "absent">();
 
   return (
     <section
@@ -19,13 +23,13 @@ export const RegisterFlow = () => {
       className={`content-grid ${styles.container}`}
       style={{
         backgroundImage: `url(${
-          confirmation ? "/images/promise.jpeg" : "/images/ring_maya.JPG"
+          assistance ? "/images/promise.jpeg" : "/images/ring_maya.JPG"
         })`,
       }}
     >
       <h3>Registra tu respuesta</h3>
-      {confirmation ? (
-        <Farewell confirmation={confirmation} />
+      {assistance ? (
+        <Farewell assistance={assistance} />
       ) : (
         <>
           <h2 className="text-white">Asistencia</h2>
@@ -43,10 +47,15 @@ export const RegisterFlow = () => {
             <GuestConfirmation
               phone={phone}
               guests={guests}
-              setConfirmation={setConfirmation}
+              initialConfirmations={confirmations}
+              setAssistance={setAssistance}
             />
           ) : (
-            <PhoneVerification setGuests={setGuests} setPhone={setPhone} />
+            <PhoneVerification
+              setPhone={setPhone}
+              setGuests={setGuests}
+              setConfirmations={setConfirmations}
+            />
           )}
         </>
       )}

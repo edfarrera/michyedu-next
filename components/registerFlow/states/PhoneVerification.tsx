@@ -2,28 +2,30 @@ import { FormEvent, useRef, useState } from "react";
 import { PhoneInput } from "react-international-phone";
 
 import { searchGuest } from "@/actions/searchGuests";
-import { GuestObject } from "@/components/registerFlow";
+import { missingError, somethingWentWrongError } from "..";
 
 import styles from "../registerFlow.module.css";
 import "react-international-phone/style.css";
 
 interface PhoneVerificationProps {
-  setGuests: (guests: GuestObject[]) => void;
   setPhone: (phone: string) => void;
+  setGuests: (guests: string[]) => void;
+  setConfirmations: (confirmations: boolean[]) => void;
 }
 
 export const PhoneVerification: React.FC<PhoneVerificationProps> = ({
-  setGuests,
   setPhone,
+  setGuests,
+  setConfirmations,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string>();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const submitNumber = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    setError(false);
+    setError(undefined);
     try {
       let phone = inputRef.current?.value
         .replace("+52", "")
@@ -31,13 +33,15 @@ export const PhoneVerification: React.FC<PhoneVerificationProps> = ({
       if (!phone) return;
 
       setIsSubmitting(true);
-      const guests = await searchGuest(phone);
+      const { guests, confirmations } = (await searchGuest(phone)) || {};
 
-      if (!guests) return setError(true);
+      if (!guests || !confirmations) return setError(missingError);
 
       setGuests(guests);
+      setConfirmations(confirmations);
       setPhone(phone);
     } catch {
+      setError(somethingWentWrongError);
     } finally {
       setIsSubmitting(false);
     }
@@ -48,12 +52,7 @@ export const PhoneVerification: React.FC<PhoneVerificationProps> = ({
       <p className="font-semibold">
         Ingresa tu teléfono celular y da click en buscar
       </p>
-      {error && (
-        <span className="text-red-600 text-sm">
-          Parece que no encontramos este número, por favor intenta con otro o
-          ponte en contacto con nosotros
-        </span>
-      )}
+      {error && <span className="text-red-600 text-sm">{error}</span>}
       <div className="flex gap-4 flex-wrap">
         <PhoneInput
           placeholder="Teléfono celular"

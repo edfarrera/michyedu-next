@@ -1,29 +1,52 @@
-import { FormEvent, useState } from "react";
-import { GuestObject } from "@/components/registerFlow";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 import styles from "@/components/registerFlow/registerFlow.module.css";
+import { somethingWentWrongError } from "..";
+import { sendConfirmations } from "@/actions/sendConfirmations";
 
 interface GuestConfirmationProps {
   phone: string;
-  guests: GuestObject[];
-  setConfirmation: (confirmation: "attending" | "absent") => void;
+  guests: string[];
+  initialConfirmations: boolean[];
+  setAssistance: (confirmation: "attending" | "absent") => void;
 }
 
 export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
   phone,
   guests,
-  setConfirmation,
+  initialConfirmations,
+  setAssistance,
 }) => {
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const [error, setError] = useState<string>();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [confirmations, setConfirmations] = useState<boolean[]>([]);
+  const [confirmations, setConfirmations] =
+    useState<(boolean | undefined)[]>(initialConfirmations);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    setError(undefined);
     setIsSubmitting(true);
 
+    try {
+      let formatedConfirmations: (boolean | null)[] = confirmations.map(
+        (value, index) => (value ?? guests[index] ? false : null)
+      ); // Set false for all guests that didnt checked
+
+      await sendConfirmations(
+        phone,
+        formatedConfirmations,
+        messageRef.current?.value
+      );
+    } catch {
+      setError(somethingWentWrongError);
+    } finally {
+      setIsSubmitting(false);
+    }
+
     const confirmation = confirmations.includes(true);
-    setConfirmation(confirmation ? "attending" : "absent");
+    setAssistance(confirmation ? "attending" : "absent");
 
     setIsSubmitting(false);
   };
@@ -44,29 +67,34 @@ export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
       <p className="font-semibold mb-4">
         ¡Hola!, por favor confirma quiénes asistirán a la boda.
       </p>
-      {guests.map(({ guest, confirmation }, index) => (
-        <div key={guest} className="flex gap-3 w-full">
-          <input
-            id={`checkbox-${index}`}
-            type="checkbox"
-            className="w-5"
-            checked={confirmations[index]}
-            onChange={(value) =>
-              changeConfirmation(index, value.target.checked)
-            }
-          />
-          <label htmlFor={`checkbox-${index}`} className="flex-1">
-            {guest}
-          </label>
-        </div>
-      ))}
+      {guests.map(
+        (guest, index) =>
+          guest && (
+            <div key={guest} className="flex gap-3 w-full">
+              <input
+                id={`checkbox-${index}`}
+                type="checkbox"
+                className="w-5"
+                checked={confirmations[index]}
+                onChange={({ target: { checked } }) =>
+                  changeConfirmation(index, checked)
+                }
+              />
+              <label htmlFor={`checkbox-${index}`} className="flex-1">
+                {guest}
+              </label>
+            </div>
+          )
+      )}
 
       <textarea
+        ref={messageRef}
         className="w-full text-lg p-2 rounded-xl  outline-blue-500 mt-8"
         placeholder="Déjanos un mensaje, o haznos saber si tienes alguna restricción alimenticia."
         rows={4}
         maxLength={300}
       />
+      {error && <span className="text-red-600 text-sm">{error}</span>}
       <button
         type="submit"
         className={`button mt-3 ${styles.button}`}

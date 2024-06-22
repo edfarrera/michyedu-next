@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import styles from "../registerFlow.module.css";
 
 interface FarewellProps {
-  confirmation: "attending" | "absent";
+  assistance: "attending" | "absent";
 }
 
-export const Farewell: React.FC<FarewellProps> = ({ confirmation }) => {
+export const Farewell: React.FC<FarewellProps> = ({ assistance }) => {
   useEffect(() => {
     const element = document.getElementById("asistencia");
     element?.scrollIntoView({
@@ -16,13 +16,13 @@ export const Farewell: React.FC<FarewellProps> = ({ confirmation }) => {
   return (
     <>
       <h2 className="text-white">
-        {confirmation === "attending"
+        {assistance === "attending"
           ? "¡Te esperamos!"
           : "Esperamos verte pronto"}
       </h2>
 
       <ul className={`${styles.list} my-5`}>
-        {confirmation === "attending" ? (
+        {assistance === "attending" ? (
           <li>
             Puedes cambiar tu respuesta hasta el <b>30 de agosto.</b>
           </li>
