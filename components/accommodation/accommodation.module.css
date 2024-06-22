@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  overflow: scroll;
+  overflow-x: scroll;
   column-gap: 20px;
   padding-inline: 20px;
   grid-column: full-width;
