@@ -2,10 +2,22 @@
   display: flex;
   overflow-x: scroll;
   column-gap: 20px;
-  padding-inline: 20px;
+  padding-inline: var(--padding-inline);
   grid-column: full-width;
   padding-block: 50px;
   margin-block: -30px;
+}
+
+.backgroundImage {
+  z-index: -1;
+  position: absolute;
+
+  top: -60px;
+  right: calc(var(--padding-inline) * -1 + -64px);
+  transform: scalex(-1) rotate(140deg);
+  opacity: 0.6;
+  filter: invert(40%) sepia(86%) saturate(667%) hue-rotate(193deg)
+    brightness(90%) contrast(81%);
 }
 
 @media (min-width: 768px) {
@@ -15,5 +27,10 @@
     row-gap: 2rem;
     padding-inline: 0;
     overflow: visible;
+  }
+
+  .backgroundImage {
+    top: -20px;
+    right: calc(var(--padding-inline) * -1 + 40px);
   }
 }

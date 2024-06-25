@@ -6,3 +6,22 @@
   row-gap: 30px;
   color: var(--light-text);
 }
+
+.backgroundImage {
+  z-index: -1;
+  position: absolute;
+  top: -43px;
+  right: -145px;
+  opacity: 0.6;
+  filter: invert(89%) sepia(9%) saturate(950%) hue-rotate(49deg) brightness(88%)
+    contrast(85%);
+  transform: scaleX(-1);
+}
+
+@media (max-width: 800px) {
+  .backgroundImage {
+    top: -95px;
+    right: -95px;
+    scale: 0.6;
+  }
+}

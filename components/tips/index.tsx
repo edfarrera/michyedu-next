@@ -9,7 +9,7 @@ const tips = [
   },
   {
     image: "/images/flor-3.png",
-    text: "La hacienda cuenta con Valet parking, pero te recomendamos llegar en Uber, especialmente si vas a tomar.",
+    text: "La hacienda cuenta con estacionamiento, pero te recomendamos llegar en Uber, especialmente si vas a tomar.",
   },
   {
     image: "/images/flor-2.png",
@@ -30,6 +30,13 @@ export const Tips = () => {
           </>
         ))}
       </div>
+      <Image
+        src="/icons/leaf2.svg"
+        alt=""
+        width={230}
+        height={230}
+        className={styles.backgroundImage}
+      />
     </section>
   );
 };

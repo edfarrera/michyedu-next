@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HotelCard } from "../hotelCard";
 
 import styles from "./accommodation.module.css";
@@ -39,7 +40,7 @@ export const Accommodation = () => {
 
       <p>
         Los siguientes hoteles son los más cercanos a la hacienda e incluyen
-        transporte al reservar usando el link siguiente.
+        transporte a la boda al reservar usando el siguiente link.
       </p>
 
       <div className={styles.container}>
@@ -47,6 +48,14 @@ export const Accommodation = () => {
           <HotelCard key={props.phone} {...props} />
         ))}
       </div>
+
+      <Image
+        src="/icons/branch3.svg"
+        alt=""
+        width="157"
+        height="223"
+        className={styles.backgroundImage}
+      />
     </section>
   );
 };

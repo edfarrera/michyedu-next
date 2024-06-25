@@ -22,6 +22,13 @@ export const Location = () => {
         >
           Ver mapa
         </Link>
+        <Image
+          src="/icons/leafs1.svg"
+          alt=""
+          width={88}
+          height={182}
+          className={styles.backgroundImage}
+        />
       </div>
 
       <Image

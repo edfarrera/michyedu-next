@@ -1,4 +1,5 @@
 .subContainer {
+  position: static;
   max-width: min(50%, 500px);
   display: flex;
   flex-direction: column;
@@ -17,6 +18,16 @@
   grid-row: 1;
 }
 
+.backgroundImage {
+  z-index: -1;
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  scale: 1.1;
+  filter: invert(89%) sepia(9%) saturate(950%) hue-rotate(49deg) brightness(88%)
+    contrast(85%);
+}
+
 @media (max-width: 800px) {
   .container {
     padding-bottom: 0;
@@ -24,7 +35,15 @@
   }
 
   .subContainer {
+    position: relative;
     max-width: 100%;
+  }
+
+  .backgroundImage {
+    scale: 0.85;
+    bottom: -45px;
+    right: -10px;
+    transform: scaleX(-1);
   }
 
   .hero {

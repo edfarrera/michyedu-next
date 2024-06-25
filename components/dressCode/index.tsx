@@ -9,7 +9,7 @@ export const DressCode = () => {
       <h3>Dress code</h3>
       <h2>Vestimenta</h2>
       <p>
-        Es importante que te sientas cómodo con tu vestimenta, pero te
+        Es importante que te sientas cómod@ con tu vestimenta, pero te
         recomendamos que escojas algo elegante para que salgas fantástic@ en
         todas las fotos.
       </p>
@@ -52,6 +52,14 @@ export const DressCode = () => {
         </h4>
         <div className={styles.separator}></div>
       </div>
+
+      <Image
+        src="/icons/branch2.svg"
+        alt=""
+        width="102"
+        height="156"
+        className={styles.backgroundImage}
+      />
     </section>
   );
 };

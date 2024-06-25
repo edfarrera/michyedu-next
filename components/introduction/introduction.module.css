@@ -1,10 +1,26 @@
 .inspiration {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 20px;
   background-color: var(--blue-background);
+  position: relative;
+  margin: auto;
+  padding: 100px 20px;
   overflow: hidden;
   color: var(--cta);
+  z-index: 0;
+}
+
+.backgroundImage {
+  z-index: -1;
+  position: absolute;
+  left: -50px;
+  top: 0px;
+  opacity: 0.6;
+  filter: invert(77%) sepia(45%) saturate(168%) hue-rotate(170deg)
+    brightness(104%) contrast(92%);
+}
+
+@media (max-width: 1023px) {
+  .backgroundImage {
+    left: -65px;
+    top: -40px;
+  }
 }

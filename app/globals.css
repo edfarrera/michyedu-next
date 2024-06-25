@@ -8,6 +8,9 @@
   --blue-background: #f3ffff;
   --orange-background: #fcf5e8;
   --light-text: #54575e;
+
+  --padding-inline: 100px;
+  --max-content-size: 1200px;
 }
 
 html {
@@ -74,8 +77,10 @@ section {
 }
 
 .content-grid {
-  --padding-inline: 100px;
-  --max-content-size: 1200px;
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+
   padding: 6.5rem 0;
   display: grid;
   grid-template-columns:
@@ -99,8 +104,11 @@ section {
 }
 
 @media (max-width: 800px) {
-  .content-grid {
+  :root {
     --padding-inline: 20px;
+  }
+
+  .content-grid {
     padding: 50px 0;
   }
 }

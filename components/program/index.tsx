@@ -1,4 +1,7 @@
+import Image from "next/image";
 import { ScheduleTable } from "../scheduleTable";
+
+import styles from "./program.module.css";
 
 const saturdaySchedule = [
   { time: "03:40 PM", activity: "RECEPCIÓN" },
@@ -47,6 +50,14 @@ export const Program = () => {
           schedule={sundaySchedule}
         />
       </div>
+
+      <Image
+        src="/icons/branch1.svg"
+        alt=""
+        width="153"
+        height="135"
+        className={styles.backgroundImage}
+      />
     </section>
   );
 };

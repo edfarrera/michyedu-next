@@ -67,6 +67,14 @@ export const Presents = () => {
           </Accordion>
         </div>
       </div>
+
+      <Image
+        src="/icons/branch3.svg"
+        alt=""
+        width="157"
+        height="223"
+        className={styles.backgroundImage}
+      />
     </section>
   );
 };
