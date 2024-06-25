@@ -31,7 +31,9 @@ export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
 
     try {
       let formatedConfirmations: (boolean | null)[] = confirmations.map(
-        (value, index) => (value ?? guests[index] ? false : null)
+        (value, index) => {
+          return value ?? (guests[index] ? false : null);
+        }
       ); // Set false for all guests that didnt checked
 
       await sendConfirmations(
