@@ -56,7 +56,14 @@ export const Program = () => {
         alt=""
         width="153"
         height="135"
-        className={styles.backgroundImage}
+        className={`${styles.backgroundImage} ${styles.position1}`}
+      />
+      <Image
+        src="/icons/branch4.svg"
+        alt=""
+        width="81"
+        height="172"
+        className={`${styles.backgroundImage} ${styles.position2}`}
       />
     </section>
   );

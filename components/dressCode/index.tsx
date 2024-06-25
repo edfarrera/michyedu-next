@@ -22,13 +22,29 @@ export const DressCode = () => {
       </div>
 
       <div className={styles.container}>
-        <Image
-          width={168}
-          height={377}
-          src="/images/dresscode.png"
-          alt=""
-          className={`m-auto ${styles.imageShadow}`}
-        />
+        <div className="m-auto relative">
+          <Image
+            width="99"
+            height="69"
+            src="/icons/arrow.svg"
+            alt=""
+            className={styles.arrow1}
+          />
+          <Image
+            width={168}
+            height={377}
+            src="/images/dresscode.png"
+            alt=""
+            className={styles.imageShadow}
+          />
+          <Image
+            width="99"
+            height="69"
+            src="/icons/arrow.svg"
+            alt=""
+            className={styles.arrow2}
+          />
+        </div>
 
         <ul className={`col-start-1 row-start-2 lg:row-start-1 ${styles.list}`}>
           <IconHeader icon="/icons/leaf1.svg" title="MUJERES" />
@@ -58,7 +74,15 @@ export const DressCode = () => {
         alt=""
         width="102"
         height="156"
-        className={styles.backgroundImage}
+        className={`${styles.backgroundImage} ${styles.position1}`}
+      />
+
+      <Image
+        src="/icons/branch5.svg"
+        alt=""
+        width="150"
+        height="200"
+        className={`${styles.backgroundImage} ${styles.position2}`}
       />
     </section>
   );

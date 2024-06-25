@@ -71,9 +71,16 @@ export const Presents = () => {
       <Image
         src="/icons/branch3.svg"
         alt=""
-        width="157"
-        height="223"
-        className={styles.backgroundImage}
+        width="140"
+        height="232"
+        className={`${styles.backgroundImage} ${styles.position1}`}
+      />
+      <Image
+        src="/icons/branch6.svg"
+        alt=""
+        width="115"
+        height="208"
+        className={`${styles.backgroundImage} ${styles.position2}`}
       />
     </section>
   );

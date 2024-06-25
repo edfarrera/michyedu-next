@@ -43,6 +43,26 @@
   filter: drop-shadow(3px 3px 5px rgba(15, 8, 59, 0.4));
 }
 
+.arrow1 {
+  position: absolute;
+  z-index: 2;
+  top: 84px;
+  left: 25px;
+  transform: translateX(-100%);
+  filter: invert(28%) sepia(47%) saturate(2689%) hue-rotate(210deg)
+    brightness(93%) contrast(83%);
+}
+
+.arrow2 {
+  position: absolute;
+  z-index: 2;
+  top: 180px;
+  right: 48px;
+  transform: scaleX(-1) translateX(-100%);
+  filter: invert(61%) sepia(84%) saturate(4334%) hue-rotate(334deg)
+    brightness(103%) contrast(101%);
+}
+
 .list > li {
   margin-top: 5px;
   margin-inline-start: 20px;
@@ -52,18 +72,32 @@
 .backgroundImage {
   z-index: -1;
   position: absolute;
-  bottom: 180px;
-  left: calc(-1 * var(--padding-inline));
   opacity: 0.6;
-  scale: 1.8;
   filter: invert(89%) sepia(9%) saturate(950%) hue-rotate(49deg) brightness(88%)
     contrast(85%);
 }
 
+.position1 {
+  scale: 1.8;
+  left: calc(-1 * var(--padding-inline));
+  bottom: 180px;
+}
+
+.position2 {
+  top: 0px;
+  right: calc(-1.2 * var(--padding-inline));
+}
+
 @media (max-width: 1024px) {
-  .backgroundImage {
+  .position1 {
     top: 45%;
     bottom: auto;
+  }
+
+  .arrow1,
+  .arrow2,
+  .position2 {
+    display: none;
   }
 
   .header {

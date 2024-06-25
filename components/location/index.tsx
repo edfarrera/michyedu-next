@@ -22,14 +22,15 @@ export const Location = () => {
         >
           Ver mapa
         </Link>
-        <Image
-          src="/icons/leafs1.svg"
-          alt=""
-          width={88}
-          height={182}
-          className={styles.backgroundImage}
-        />
       </div>
+
+      <Image
+        src="/icons/leafs1.svg"
+        alt=""
+        width={88}
+        height={182}
+        className={styles.backgroundImage}
+      />
 
       <Image
         src="/images/el_molino.webp"

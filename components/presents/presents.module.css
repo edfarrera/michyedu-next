@@ -21,11 +21,20 @@
 .backgroundImage {
   z-index: -1;
   position: absolute;
-  top: 150px;
-  right: calc(var(--padding-inline) * -1);
+
   opacity: 0.6;
   filter: invert(75%) sepia(47%) saturate(477%) hue-rotate(352deg)
     brightness(91%) contrast(87%);
+}
+
+.position1 {
+  top: 150px;
+  right: calc(var(--padding-inline) * -1);
+}
+
+.position2 {
+  bottom: 180px;
+  left: calc(var(--padding-inline) * -1.3);
 }
 
 @media (max-width: 1023px) {
@@ -38,10 +47,14 @@
     grid-row: 3;
   }
 
-  .backgroundImage {
+  .position1 {
     top: auto;
     bottom: 8px;
     scale: 1.1;
+  }
+
+  .position2 {
+    display: none;
   }
 }
 

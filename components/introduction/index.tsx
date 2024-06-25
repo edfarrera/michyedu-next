@@ -6,7 +6,7 @@ export const Introduction = () => {
   return (
     <section>
       <SlideShow />
-      <div className={styles.inspiration}>
+      <div className={`${styles.inspiration} content-grid`}>
         <h1 className="lyrics">
           “Baby I&apos;m yours, until the sun no longer shines...”
         </h1>

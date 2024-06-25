@@ -1,5 +1,5 @@
 .subContainer {
-  position: static;
+  position: relative;
   max-width: min(50%, 500px);
   display: flex;
   flex-direction: column;
@@ -22,10 +22,17 @@
   z-index: -1;
   position: absolute;
   bottom: 30px;
-  right: 10px;
+  right: calc(var(--padding-inline) * -1.2);
+
   scale: 1.1;
   filter: invert(89%) sepia(9%) saturate(950%) hue-rotate(49deg) brightness(88%)
     contrast(85%);
+}
+
+@media (max-width: 1440px) {
+  .backgroundImage {
+    right: calc(var(--padding-inline) * -0.9);
+  }
 }
 
 @media (max-width: 800px) {
@@ -35,13 +42,13 @@
   }
 
   .subContainer {
-    position: relative;
     max-width: 100%;
   }
 
   .backgroundImage {
     scale: 0.85;
-    bottom: -45px;
+    top: 20px;
+    bottom: auto;
     right: -10px;
     transform: scaleX(-1);
   }

@@ -52,8 +52,8 @@ export const Accommodation = () => {
       <Image
         src="/icons/branch3.svg"
         alt=""
-        width="157"
-        height="223"
+        width="140"
+        height="232"
         className={styles.backgroundImage}
       />
     </section>
