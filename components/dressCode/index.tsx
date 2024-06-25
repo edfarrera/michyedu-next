@@ -42,7 +42,7 @@ export const DressCode = () => {
 
         <ul className={styles.list}>
           <IconHeader icon="/icons/leaf1.svg" title="HOMBRES" />
-          <li>Traje o esmoquin</li>
+          <li>Traje</li>
         </ul>
       </div>
 

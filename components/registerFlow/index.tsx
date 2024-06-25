@@ -37,7 +37,7 @@ export const RegisterFlow = () => {
 
           <ul className={styles.list}>
             <li>
-              Confirma tu asistencia hasta el <b>30 de agosto</b>
+              Confirma tu asistencia antes del <b>30 de agosto</b>
             </li>
             <li>
               Esta es una celebración sólo para adultos, <b>no niños</b>
