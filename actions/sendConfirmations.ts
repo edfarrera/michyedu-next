@@ -21,7 +21,5 @@ export const sendConfirmations = async (
                 updated_at = now()
                 where phone = ${phone} or phone2 = ${phone}`;
 
-  console.log(result);
-
   return result;
 };

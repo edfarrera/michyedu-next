@@ -11,12 +11,14 @@ interface PhoneVerificationProps {
   setPhone: (phone: string) => void;
   setGuests: (guests: string[]) => void;
   setConfirmations: (confirmations: boolean[]) => void;
+  setInitialMessage: (message?: string) => void;
 }
 
 export const PhoneVerification: React.FC<PhoneVerificationProps> = ({
   setPhone,
   setGuests,
   setConfirmations,
+  setInitialMessage,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [error, setError] = useState<string>();
@@ -33,12 +35,14 @@ export const PhoneVerification: React.FC<PhoneVerificationProps> = ({
       if (!phone) return;
 
       setIsSubmitting(true);
-      const { guests, confirmations } = (await searchGuest(phone)) || {};
+      const { guests, confirmations, message } =
+        (await searchGuest(phone)) || {};
 
       if (!guests || !confirmations) return setError(missingError);
 
       setGuests(guests);
       setConfirmations(confirmations);
+      setInitialMessage(message);
       setPhone(phone);
     } catch {
       setError(somethingWentWrongError);

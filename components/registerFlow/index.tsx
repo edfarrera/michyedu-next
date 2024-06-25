@@ -15,6 +15,7 @@ export const RegisterFlow = () => {
   const [phone, setPhone] = useState<string>("");
   const [guests, setGuests] = useState<string[]>([]);
   const [confirmations, setConfirmations] = useState<boolean[]>([]);
+  const [initialMessage, setInitialMessage] = useState<string>();
   const [assistance, setAssistance] = useState<"attending" | "absent">();
 
   return (
@@ -49,12 +50,14 @@ export const RegisterFlow = () => {
               guests={guests}
               initialConfirmations={confirmations}
               setAssistance={setAssistance}
+              initialMessage={initialMessage}
             />
           ) : (
             <PhoneVerification
               setPhone={setPhone}
               setGuests={setGuests}
               setConfirmations={setConfirmations}
+              setInitialMessage={setInitialMessage}
             />
           )}
         </>

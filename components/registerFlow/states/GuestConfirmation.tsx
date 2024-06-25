@@ -8,6 +8,7 @@ interface GuestConfirmationProps {
   phone: string;
   guests: string[];
   initialConfirmations: boolean[];
+  initialMessage?: string;
   setAssistance: (confirmation: "attending" | "absent") => void;
 }
 
@@ -15,13 +16,14 @@ export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
   phone,
   guests,
   initialConfirmations,
+  initialMessage,
   setAssistance,
 }) => {
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const [error, setError] = useState<string>();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [confirmations, setConfirmations] =
-    useState<(boolean | undefined)[]>(initialConfirmations);
+    useState<boolean[]>(initialConfirmations);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -77,7 +79,7 @@ export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
                 id={`checkbox-${index}`}
                 type="checkbox"
                 className="w-5"
-                checked={confirmations[index]}
+                checked={confirmations[index] ?? false}
                 onChange={({ target: { checked } }) =>
                   changeConfirmation(index, checked)
                 }
@@ -93,6 +95,7 @@ export const GuestConfirmation: React.FC<GuestConfirmationProps> = ({
         ref={messageRef}
         className="w-full text-lg p-2 rounded-xl  outline-blue-500"
         placeholder="Déjanos un mensaje, o haznos saber si tienes alguna restricción alimenticia."
+        defaultValue={initialMessage}
         rows={4}
         maxLength={300}
       />
