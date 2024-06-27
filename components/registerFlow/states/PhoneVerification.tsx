@@ -31,7 +31,7 @@ export const PhoneVerification: React.FC<PhoneVerificationProps> = ({
     try {
       let phone = inputRef.current?.value
         .replace("+52", "")
-        .replaceAll(" ", "");
+        .replace(/[^\+\d]/g, "");
       if (!phone) return;
 
       setIsSubmitting(true);
@@ -61,7 +61,7 @@ export const PhoneVerification: React.FC<PhoneVerificationProps> = ({
         <PhoneInput
           placeholder="Teléfono celular"
           defaultCountry="mx"
-          preferredCountries={["mx", "us", "de", "es", "pl"]}
+          preferredCountries={["mx", "us", "de", "pl", "fi", "co", "gb"]}
           forceDialCode
           disableCountryGuess
           historySaveDebounceMS={500}
